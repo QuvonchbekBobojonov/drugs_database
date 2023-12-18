@@ -18,6 +18,7 @@ Response:
 ```
 
 ### Get drug by name
+@name = "Q10 Макс Коэнзим капс. №40"
 
 GET /name/{{name}}
 Accept: application/json
@@ -37,6 +38,7 @@ Response:
 ```
 
 ### Get drug by manufacturer
+@manufacturer = "Pharmaxx International"
 
 GET /manufacturer/{{manufacturer}}
 Accept: application/json
@@ -56,6 +58,7 @@ Response:
 ```
 
 ### Get drug by expiration date
+@expiration_date = YYYY-MM-DD
 
 GET /expiration_date/{{expiration_date}}
 Accept: application/json
@@ -76,6 +79,7 @@ Response:
 
 
 ### Get drug by base price
+@base_price = 90000.00
 
 GET /base_price/{{base_price}}
 Accept: application/json
