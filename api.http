@@ -119,6 +119,7 @@ Response:
 
 
 ### Get drug by all fields
+@filter = "Q10 Макс Коэнзим капс. №40"
 
 GET /{{filter}}
 Accept: application/json
