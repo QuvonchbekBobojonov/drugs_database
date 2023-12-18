@@ -1,0 +1,139 @@
+# Drugs DataBase (DDB) - A database of drugs and their interactions
+
+GET /
+Accept: application/json
+Authorization: None
+
+Response:
+```json
+[
+    {
+        "name": "Q10 Макс Коэнзим капс. №40",
+        "original_pack": "0-50",
+        "base_price": "90 000,00",
+        "expiration_date": "2023-12-18",
+        "manufacturer": "\"\"\"Pharmaxx International\"\" Узб.\""
+    },
+]
+```
+
+### Get drug by name
+
+GET /name/{{name}}
+Accept: application/json
+Authorization: None
+
+Response:
+```json
+[
+    {
+        "name": "Q10 Макс Коэнзим капс. №40",
+        "original_pack": "0-50",
+        "base_price": "90 000,00",
+        "expiration_date": "2023-12-18",
+        "manufacturer": "\"\"\"Pharmaxx International\"\" Узб.\""
+    },
+]
+```
+
+### Get drug by manufacturer
+
+GET /manufacturer/{{manufacturer}}
+Accept: application/json
+Authorization: None
+
+Response:
+```json
+[
+    {
+        "name": "Q10 Макс Коэнзим капс. №40",
+        "original_pack": "0-50",
+        "base_price": "90 000,00",
+        "expiration_date": "2023-12-18",
+        "manufacturer": "\"\"\"Pharmaxx International\"\" Узб.\""
+    },
+]
+```
+
+### Get drug by expiration date
+
+GET /expiration_date/{{expiration_date}}
+Accept: application/json
+Authorization: None
+
+Response:
+```json
+[
+    {
+        "name": "Q10 Макс Коэнзим капс. №40",
+        "original_pack": "0-50",
+        "base_price": "90 000,00",
+        "expiration_date": "2023-12-18",
+        "manufacturer": "\"\"\"Pharmaxx International\"\" Узб.\""
+    },
+]
+```
+
+
+### Get drug by base price
+
+GET /base_price/{{base_price}}
+Accept: application/json
+Authorization: None
+
+Response:
+```json
+[
+    {
+        "name": "Q10 Макс Коэнзим капс. №40",
+        "original_pack": "0-50",
+        "base_price": "90 000,00",
+        "expiration_date": "2023-12-18",
+        "manufacturer": "\"\"\"Pharmaxx International\"\" Узб.\""
+    },
+]
+```
+
+### Get drug by original pack
+
+GET /original_pack/{{original_pack}}
+Accept: application/json
+Authorization: None
+
+Response:
+```json
+[
+    {
+        "name": "Q10 Макс Коэнзим капс. №40",
+        "original_pack": "0-50",
+        "base_price": "90 000,00",
+        "expiration_date": "2023-12-18",
+        "manufacturer": "\"\"\"Pharmaxx International\"\" Узб.\""
+    },
+]
+```
+
+
+### Get drug by all fields
+
+GET /{{filter}}
+Accept: application/json
+Authorization: None
+
+Response:
+```json
+[
+    {
+        "name": "Q10 Макс Коэнзим капс. №40",
+        "original_pack": "0-50",
+        "base_price": "90 000,00",
+        "expiration_date": "2023-12-18",
+        "manufacturer": "\"\"\"Pharmaxx International\"\" Узб.\""
+    },
+]
+```
+
+
+
+
+
