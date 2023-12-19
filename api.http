@@ -99,6 +99,7 @@ Response:
 ```
 
 ### Get drug by original pack
+@original_pack = "0-50"
 
 GET /original_pack/{{original_pack}}
 Accept: application/json
