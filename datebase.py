@@ -1,7 +1,6 @@
 from peewee import *
 import json
 from datetime import date
-from pprint import pprint as print
 
 db = SqliteDatabase('database.db')
 db.connect()
@@ -41,23 +40,23 @@ class BaseModel(Model):
 
     @classmethod
     def get_by_name(cls, name):
-        return cls.get(cls.name == name)
+        return cls.select().where(cls.name.contains(name))
 
     @classmethod
     def get_by_original_pack(cls, original_pack):
-        return cls.get(cls.original_pack == original_pack)
+        return cls.select().where(cls.original_pack.contains(original_pack))
 
     @classmethod
     def get_by_base_price(cls, base_price):
-        return cls.get(cls.base_price == base_price)
+        return cls.select().where(cls.base_price.contains(base_price))
 
     @classmethod
     def get_by_expiration_date(cls, expiration_date):
-        return cls.get(cls.expiration_date == expiration_date)
+        return cls.select().where(cls.expiration_date.contains(expiration_date))
 
     @classmethod
     def get_by_manufacturer(cls, manufacturer):
-        return cls.get(cls.manufacturer == manufacturer)
+        return cls.select().where(cls.manufacturer.contains(manufacturer))
 
     @classmethod
     def get_by(cls, **kwargs):
