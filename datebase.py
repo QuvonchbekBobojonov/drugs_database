@@ -35,28 +35,64 @@ class BaseModel(Model):
         return data
 
     @classmethod
+    def get_json(cls, obj):
+        fields = [field for field in cls._meta.fields.values() if
+                  isinstance(field, (CharField, DateField))]
+        data = []
+
+        for instance in obj:
+            item = {}
+            for field in fields:
+                value = getattr(instance, field.name)
+                if isinstance(value, date):
+                    value = value.strftime('%Y-%m-%d')
+                item[field.name] = value
+            data.append(item)
+        return data
+
+    @classmethod
     def get_by_id(cls, id):
         return cls.get(cls.id == id)
 
     @classmethod
     def get_by_name(cls, name):
-        return cls.select().where(cls.name.contains(name))
+        try:
+            data = cls.select().where(cls.name.contains(name))
+            return cls.get_json(data)
+        except cls.DoesNotExist:
+            return []
 
     @classmethod
     def get_by_original_pack(cls, original_pack):
-        return cls.select().where(cls.original_pack.contains(original_pack))
+        try:
+            data = cls.select().where(cls.original_pack.contains(original_pack))
+            return cls.get_json(data)
+        except cls.DoesNotExist:
+            return []
 
     @classmethod
     def get_by_base_price(cls, base_price):
-        return cls.select().where(cls.base_price.contains(base_price))
+        try:
+            data = cls.select().where(cls.base_price.contains(base_price))
+            return cls.get_json(data)
+        except cls.DoesNotExist:
+            return []
 
     @classmethod
     def get_by_expiration_date(cls, expiration_date):
-        return cls.select().where(cls.expiration_date.contains(expiration_date))
+        try:
+            data = cls.select().where(cls.expiration_date.contains(expiration_date))
+            return cls.get_json(data)
+        except cls.DoesNotExist:
+            return []
 
     @classmethod
     def get_by_manufacturer(cls, manufacturer):
-        return cls.select().where(cls.manufacturer.contains(manufacturer))
+        try:
+            data = cls.select().where(cls.manufacturer.contains(manufacturer))
+            return cls.get_json(data)
+        except cls.DoesNotExist:
+            return []
 
     @classmethod
     def get_by(cls, **kwargs):
