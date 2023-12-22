@@ -56,8 +56,9 @@ class BaseModel(Model):
 
     @classmethod
     def get_by_name(cls, name):
+        name = name.capitalize()
         try:
-            data = cls.select().where(cls.name.contains(name))
+            data = cls.select().where(cls.name.startswith(name.capitalize()))
             return cls.get_json(data)
         except cls.DoesNotExist:
             return []
@@ -170,5 +171,14 @@ def create_data():
 
 if __name__ == '__main__':
     create_tables()
-    create_data()
-    print(Drug.get_all())
+    with open('data.json', 'r') as f:
+        data = json.loads(f.read())
+
+    for i in data:
+        add_drug(
+            name=i['name'],
+            original_pack=i['original_pack'],
+            base_price=i['base_price'],
+            expiration_date=i['expiration_date'],
+            manufacturer=i['manufacturer']
+        )
